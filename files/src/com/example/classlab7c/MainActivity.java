@@ -1,10 +1,14 @@
 package com.example.classlab7c;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.os.Bundle;
 import android.view.Menu;
 
-public class MainActivity extends Activity {
+import com.example.classlab7c.fragments.Layout1;
+
+public class MainActivity extends Activity implements ListFragment.OnItemSelectedListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,5 +23,15 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
+
+	@Override
+	public void onRssItemSelected(String link) {
+		FragmentManager fragmentManager = getFragmentManager();  
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        
+        Layout1 layout1;
+		
+	}
     
 }
