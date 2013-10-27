@@ -1,5 +1,6 @@
 package com.example.classlab7c.fragments;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -55,6 +56,22 @@ public class ListFragment extends Fragment {
 		return view;
 	}
 	
+	//NPE is thrown if you attempt to run this before instantiating
+	//the listener.
+	//fragment activity lifecycle info:
+	//  - http://developer.android.com/reference/android/app/Fragment.html
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity); 
+		//this ensures that the activity implements the interface we defined.
+		if (activity instanceof OnItemSelectedListener) {  
+			listener = (OnItemSelectedListener) activity;  
+		} else {  
+			throw new ClassCastException(
+				activity.toString() + " must implemenet MyListFragment.OnItemSelectedListener"
+			);  
+		} 
+	}
 	
 	// May also be triggered from the Activity  
 	public void updateDetail(String s) {          
