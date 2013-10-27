@@ -32,6 +32,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener{
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         
         Layout1 layout1;
+        
 		
 	}
     
