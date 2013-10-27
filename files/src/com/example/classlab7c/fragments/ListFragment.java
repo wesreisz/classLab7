@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.classlab7c.R;
+import com.example.classlab7c.adapters.MusicListAdapter;
 import com.example.classlab7c.listeners.OnItemSelectedListener;
 import com.example.classlab7c.model.MenuItem;
 import com.example.classlab7c.service.MusicListService;
@@ -21,14 +22,12 @@ public class ListFragment extends Fragment {
 	private OnItemSelectedListener listener;
 	private List<MenuItem>menuItems;
 	
-	
-	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 	}
-
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -37,6 +36,7 @@ public class ListFragment extends Fragment {
 		//this is how we will interact with the services
 		menuItems = MusicListService.getInstance(getActivity()).getAllMenuItems();
 		
+		/*
 		Button button1 = (Button) view.findViewById(R.id.button1);
 		button1.setOnClickListener(new View.OnClickListener() {
 			
@@ -44,10 +44,10 @@ public class ListFragment extends Fragment {
 			public void onClick(View v) {
 				updateDetail("layout1");  
 			}
-		});
+		});*/
 		
-		ArrayAdapter<MenuItem> adapter =
-				new ArrayAdapter<MenuItem>(getActivity(), android.R.layout.simple_list_item_1, menuItems);
+		MusicListAdapter adapter =
+				new MusicListAdapter(getActivity(), R.layout.listview_for_each_item, menuItems);
 		ListView listViewMusic = (ListView) view.findViewById(R.id.listViewMusic);
 		listViewMusic.setAdapter(adapter);
 		
