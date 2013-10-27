@@ -7,8 +7,9 @@ import android.os.Bundle;
 import android.view.Menu;
 
 import com.example.classlab7c.fragments.Layout1;
+import com.example.classlab7c.listeners.OnItemSelectedListener;
 
-public class MainActivity extends Activity implements ListFragment.OnItemSelectedListener{
+public class MainActivity extends Activity implements OnItemSelectedListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class MainActivity extends Activity implements ListFragment.OnItemSelecte
     }
 
 
-	@Override
+    @Override
 	public void onRssItemSelected(String link) {
 		FragmentManager fragmentManager = getFragmentManager();  
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

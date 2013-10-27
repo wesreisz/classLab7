@@ -1,5 +1,7 @@
 package com.example.classlab7c;
 
+import com.example.classlab7c.listeners.OnItemSelectedListener;
+
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +12,6 @@ import android.widget.Button;
 public class ListFragment extends Fragment {
 
 	private OnItemSelectedListener listener;
-	
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,9 +54,6 @@ public class ListFragment extends Fragment {
 		return view;
 	}
 	
-	public interface OnItemSelectedListener {  
-		public void onRssItemSelected(String link);  
-	} 
 	
 	// May also be triggered from the Activity  
 	public void updateDetail(String s) {          
