@@ -1,4 +1,4 @@
-package com.example.classlab7c.model;
+package com.example.classlab7c.service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -7,12 +7,16 @@ import java.util.Arrays;
 import java.util.List;
 
 import android.content.Context;
-import com.example.classlab7c.model.MenuItem;
 
-public class MusicList {
+import com.example.classlab7c.model.Artist;
+import com.example.classlab7c.model.Event;
+import com.example.classlab7c.model.MenuItem;
+import com.example.classlab7c.model.Song;
+
+public class MusicListService {
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy/mm/dd"); 
 	
-	private static MusicList sPlayList;
+	private static MusicListService sPlayList;
 	private Context mAppContext;
 	
 	private List<Song> songs;
@@ -67,13 +71,13 @@ public class MusicList {
 		}
 	}
 	
-	private MusicList(Context c){
+	private MusicListService(Context c){
 		mAppContext = c;
 	}
 	
-	public static MusicList getInstance(Context c){
+	public static MusicListService getInstance(Context c){
 		if (sPlayList==null){
-			sPlayList = new MusicList(c.getApplicationContext());
+			sPlayList = new MusicListService(c.getApplicationContext());
 		}
 		return sPlayList;
 	}

@@ -1,5 +1,7 @@
 package com.example.classlab7c.fragments;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -10,47 +12,27 @@ import android.widget.Button;
 
 import com.example.classlab7c.R;
 import com.example.classlab7c.listeners.OnItemSelectedListener;
+import com.example.classlab7c.model.MenuItem;
+import com.example.classlab7c.service.MusicListService;
 
 public class ListFragment extends Fragment {
-
 	private OnItemSelectedListener listener;
+	private List<MenuItem>menuItems;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.list_fragment, container, false);
 		
-		Button button1 = (Button) view.findViewById(R.id.button1);
-		Button button2 = (Button) view.findViewById(R.id.button2);
-		Button button3 = (Button) view.findViewById(R.id.button3);
-		Button button4 = (Button) view.findViewById(R.id.button4);
+		//this is how we will interact with the services
+		menuItems = MusicListService.getInstance(getActivity()).getAllMenuItems();
 		
+		Button button1 = (Button) view.findViewById(R.id.button1);
 		button1.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				updateDetail("layout1");  
-			}
-		});
-		button2.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				updateDetail("layout2");  
-			}
-		});
-		button3.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				updateDetail("layout3");  
-			}
-		});
-		button4.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				updateDetail("layout4");  
 			}
 		});
 		return view;
