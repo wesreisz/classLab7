@@ -39,7 +39,7 @@ public class ListFragment extends Fragment {
 		menuItems = MusicListService.getInstance(getActivity()).getAllMenuItems();
 		
 		MusicListAdapter adapter =
-				new MusicListAdapter(getActivity(), R.layout.listview_for_each_item, menuItems);
+				new MusicListAdapter(getActivity(), R.layout.listview_for_each_menuitem, menuItems);
 		ListView listViewMusic = (ListView) view.findViewById(R.id.listViewMusic);
 		listViewMusic.setAdapter(adapter);
 		

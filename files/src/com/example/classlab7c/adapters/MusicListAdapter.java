@@ -26,7 +26,7 @@ public class MusicListAdapter extends ArrayAdapter<MenuItem>{
 	public View getView(int position, View view, ViewGroup parent) {
 		if(view==null){
 			 LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		     view = inflater.inflate(R.layout.listview_for_each_item, parent, false);
+		     view = inflater.inflate(R.layout.listview_for_each_menuitem, parent, false);
 		}
 		MenuItem menuItem = mEntries.get(position);
 		

@@ -85,4 +85,10 @@ public class MusicListService {
 	public List<MenuItem> getAllMenuItems(){
 		return menu;
 	}
+	public List<Song> getAllSongs(){
+		return songs;
+	}
+	public List<Event> getAllEvents(){
+		return events;
+	}
 }
