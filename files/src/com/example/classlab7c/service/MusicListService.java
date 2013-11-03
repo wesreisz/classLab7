@@ -91,4 +91,12 @@ public class MusicListService {
 	public List<Event> getAllEvents(){
 		return events;
 	}
+	public Artist getArtistNameByIt(int id){
+		for(Artist artist:artists){
+			if(artist.getArtistId()==id){
+				return artist;
+			}
+		}
+		return new Artist(0,"",new ArrayList<Song>(),new ArrayList<Event>());
+	}
 }
