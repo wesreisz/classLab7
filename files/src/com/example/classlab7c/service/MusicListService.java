@@ -99,4 +99,8 @@ public class MusicListService {
 		}
 		return new Artist(0,"",new ArrayList<Song>(),new ArrayList<Event>());
 	}
+
+	public List<Artist> getAllArtists() {
+		return artists;
+	}
 }
