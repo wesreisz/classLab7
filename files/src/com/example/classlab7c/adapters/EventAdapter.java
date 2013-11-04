@@ -15,7 +15,7 @@ import com.example.classlab7c.model.Event;
 import com.example.classlab7c.service.MusicListService;
 
 public class EventAdapter extends ArrayAdapter<Event> {
-	private SimpleDateFormat df = new SimpleDateFormat("yyyy/mm/dd"); 
+	private SimpleDateFormat df = new SimpleDateFormat("EEE MMM d, ''yy"); 
 	private Context mContext;
 	private List<Event> mEntries;
 	
