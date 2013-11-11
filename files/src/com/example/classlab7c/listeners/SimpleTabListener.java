@@ -6,7 +6,6 @@ import android.app.ActionBar.Tab;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
-import android.graphics.SumPathEffect;
 
 public class SimpleTabListener implements ActionBar.TabListener {
 	private Context mContext;
