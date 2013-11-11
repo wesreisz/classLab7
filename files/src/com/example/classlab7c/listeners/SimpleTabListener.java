@@ -30,12 +30,12 @@ public class SimpleTabListener implements ActionBar.TabListener {
 	
 	@Override
 	public void onTabReselected(Tab tab, FragmentTransaction ft) {
-		ft.detach(mTabFragment);
+		//nothing todo 
 	}
 
 	@Override
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-		// Nothing to do
+		ft.detach(mTabFragment);
 	}
 
 
