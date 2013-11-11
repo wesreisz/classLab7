@@ -15,6 +15,7 @@ import com.example.classlab7c.fragments.Layout2;
 import com.example.classlab7c.fragments.Layout3;
 import com.example.classlab7c.fragments.Layout4;
 import com.example.classlab7c.listeners.OnItemSelectedListener;
+import com.example.classlab7c.listeners.SimpleTabListener;
 
 public class MainActivity extends Activity implements OnItemSelectedListener{
 
@@ -27,6 +28,16 @@ public class MainActivity extends Activity implements OnItemSelectedListener{
         setContentView(R.layout.activity_main);
         onRssItemSelected("layout4");
         setFullTitle();
+        
+        ActionBar actionBar = getActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        
+        ActionBar.TabListener tabListener1 = new SimpleTabListener(
+        		this, "com.example.classlab7c.fragments.Layout1");
+        ActionBar.Tab tab1 = actionBar.newTab();
+        tab1.setText("Test");
+        tab1.setTabListener(tabListener1);
+        actionBar.addTab(tab1);
     }
 
 	@Override
