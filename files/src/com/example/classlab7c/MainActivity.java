@@ -6,6 +6,8 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.classlab7c.fragments.Layout1;
 import com.example.classlab7c.fragments.Layout2;
@@ -25,12 +27,30 @@ public class MainActivity extends Activity implements OnItemSelectedListener{
         onRssItemSelected("layout4");
     }
 
-
-    @Override
+	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+    
+    public void onOption1Clicked(MenuItem menuItem){
+    	showToast("Option 1");
+    }
+    public void onOption2Clicked(MenuItem menuItem){
+    	showToast("Option 2");
+    }
+    public void onOption3Clicked(MenuItem menuItem){
+    	showToast("Option 3");
+    }
+    
+    public void onExitClicked(MenuItem menuItem){
+    	finish();
+    }
+
+    private void showToast(String message) {
+    	Toast t = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+    	t.show();
     }
 
 
