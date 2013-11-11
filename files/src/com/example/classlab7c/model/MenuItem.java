@@ -3,6 +3,7 @@ package com.example.classlab7c.model;
 public class MenuItem {
 	private String menuTitle;
 	private String menuDescription;
+	private String menuItemClass;
 	
 	public MenuItem(String menuTitle, String menuDescription) {
 		super();
@@ -10,6 +11,14 @@ public class MenuItem {
 		this.menuDescription = menuDescription;
 	}
 	
+	public String getMenuItemClass() {
+		return menuItemClass;
+	}
+
+	public void setMenuItemClass(String menuItemClass) {
+		this.menuItemClass = menuItemClass;
+	}
+
 	public String getMenuTitle() {
 		return menuTitle;
 	}

@@ -44,8 +44,11 @@ public class MusicListService {
 			Artist a2 = new Artist(2,"Jason Mraz",Arrays.asList(s3), Arrays.asList(t1, t2));
 			
 			MenuItem menu1 = new MenuItem("Songs", "Shows all available songs");
+			menu1.setMenuItemClass("com.example.classlab7c.fragments.Layout1");
 			MenuItem menu2 = new MenuItem("Artists", "Shows all available artists");
+			menu2.setMenuItemClass("com.example.classlab7c.fragments.Layout2");
 			MenuItem menu3 = new MenuItem("Events", "Shows all available events");
+			menu3.setMenuItemClass("com.example.classlab7c.fragments.Layout3");
 			
 			events = new ArrayList<Event>();
 			events.add(t1);
