@@ -1,5 +1,6 @@
 package com.example.classlab7c;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -25,6 +26,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         onRssItemSelected("layout4");
+        setFullTitle();
     }
 
 	@Override
@@ -51,6 +53,12 @@ public class MainActivity extends Activity implements OnItemSelectedListener{
     private void showToast(String message) {
     	Toast t = Toast.makeText(this, message, Toast.LENGTH_SHORT);
     	t.show();
+    }
+    
+    private void setFullTitle(){
+    	ActionBar actionBar = getActionBar();
+    	actionBar.setSubtitle("Super kewl subtitle");
+    	actionBar.show();
     }
 
 
