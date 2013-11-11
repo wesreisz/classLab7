@@ -43,6 +43,8 @@ public class MusicListService {
 			Artist a1 = new Artist(1,"Three Doors Down", Arrays.asList(s1, s2), Arrays.asList(t3, t4));
 			Artist a2 = new Artist(2,"Jason Mraz",Arrays.asList(s3), Arrays.asList(t1, t2));
 			
+			MenuItem menu0 = new MenuItem("Home", "Homepage");
+			menu0.setMenuItemClass("com.example.classlab7c.fragments.Layout4");
 			MenuItem menu1 = new MenuItem("Songs", "Shows all available songs");
 			menu1.setMenuItemClass("com.example.classlab7c.fragments.Layout1");
 			MenuItem menu2 = new MenuItem("Artists", "Shows all available artists");
@@ -66,6 +68,7 @@ public class MusicListService {
 			artists.add(a2);
 			
 			menu = new ArrayList<MenuItem>();
+			menu.add(menu0);
 			menu.add(menu1);
 			menu.add(menu2);
 			menu.add(menu3);
