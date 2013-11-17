@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select any of the menu items on the left"
+        android:text="Select any of the menu items above"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="12dip"
         android:textStyle="italic"
