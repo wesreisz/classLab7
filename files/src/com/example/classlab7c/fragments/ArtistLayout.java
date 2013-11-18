@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-public class Layout2 extends Fragment {
+public class ArtistLayout extends Fragment {
 	private static int ADD_BUTTON_POSITION = 0;
 
 	@Override

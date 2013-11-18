@@ -12,10 +12,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.classlab7c.fragments.Layout1;
-import com.example.classlab7c.fragments.Layout2;
-import com.example.classlab7c.fragments.Layout3;
-import com.example.classlab7c.fragments.Layout4;
+import com.example.classlab7c.fragments.SongLayout;
+import com.example.classlab7c.fragments.ArtistLayout;
+import com.example.classlab7c.fragments.EventLayout;
+import com.example.classlab7c.fragments.HomeLayout;
 import com.example.classlab7c.listeners.OnItemSelectedListener;
 import com.example.classlab7c.listeners.SimpleTabListener;
 import com.example.classlab7c.service.MusicListService;
