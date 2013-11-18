@@ -4,19 +4,12 @@ import java.util.List;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.classlab7c.fragments.SongLayout;
-import com.example.classlab7c.fragments.ArtistLayout;
-import com.example.classlab7c.fragments.EventLayout;
-import com.example.classlab7c.fragments.HomeLayout;
-import com.example.classlab7c.listeners.OnItemSelectedListener;
 import com.example.classlab7c.listeners.SimpleTabListener;
 import com.example.classlab7c.service.MusicListService;
 
@@ -56,13 +49,14 @@ public class MainActivity extends Activity {
     	ActionBar actionBar = getActionBar();
     	String name = (String) actionBar.getSelectedTab().getText();
     	
-    	showToast("Option 1 " + name);
-    }
-    public void onOption2Clicked(MenuItem menuItem){
-    	showToast("Option 2");
-    }
-    public void onOption3Clicked(MenuItem menuItem){
-    	showToast("Option 3");
+    	if (actionBar.getSelectedTab().getPosition()==1){
+	    	Intent intent = new Intent(this, AddSongActivity.class);
+			startActivity(intent);  
+    	}else if (actionBar.getSelectedTab().getPosition()==2){
+    		showToast("Add Artist");
+    	}else if (actionBar.getSelectedTab().getPosition()==3){
+    		showToast("Add Event");
+    	}
     }
     
     public void onExitClicked(MenuItem menuItem){

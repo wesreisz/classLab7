@@ -3,17 +3,16 @@ package com.example.classlab7c.adapters;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import com.example.classlab7c.R;
-import com.example.classlab7c.model.Artist;
-import com.example.classlab7c.model.Event;
-import com.example.classlab7c.model.Song;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.example.classlab7c.R;
+import com.example.classlab7c.model.Artist;
+import com.example.classlab7c.model.Song;
 
 public class ArtistAdapter extends ArrayAdapter<Artist> {
 	private SimpleDateFormat df = new SimpleDateFormat("EEE MMM d, ''yy"); 
