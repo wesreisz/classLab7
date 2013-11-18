@@ -13,6 +13,6 @@ public class HomeLayout extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.layout4, container, false);
+		return inflater.inflate(R.layout.home_layout, container, false);
 	}
 }

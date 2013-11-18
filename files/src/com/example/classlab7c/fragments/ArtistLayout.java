@@ -22,7 +22,7 @@ public class ArtistLayout extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.layout2, container, false);
+		View view = inflater.inflate(R.layout.artist_layout, container, false);
 		List<Artist>artists = MusicListService.getInstance(getActivity()).getAllArtists();
 		
 		ArtistAdapter adapter = 
