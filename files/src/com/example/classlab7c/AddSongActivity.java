@@ -6,6 +6,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 /**
  * Activity which displays a login screen to the user, offering registration as
@@ -37,7 +39,17 @@ public class AddSongActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	 private void setFullTitle(){
+	public void addSongToBackend(View v){
+		showToast("Adding Song");
+		finish();
+	}
+	
+	private void showToast(String message) {
+    	Toast t = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+    	t.show();
+    }
+
+	private void setFullTitle(){
     	ActionBar actionBar = getActionBar();
     	actionBar.setSubtitle("Super kewl subtitle");
     	actionBar.show();
