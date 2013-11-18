@@ -48,11 +48,15 @@ public class MainActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        
         return true;
     }
     
     public void onOption1Clicked(MenuItem menuItem){
-    	showToast("Option 1");
+    	ActionBar actionBar = getActionBar();
+    	String name = (String) actionBar.getSelectedTab().getText();
+    	
+    	showToast("Option 1 " + name);
     }
     public void onOption2Clicked(MenuItem menuItem){
     	showToast("Option 2");

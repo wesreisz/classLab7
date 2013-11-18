@@ -10,12 +10,15 @@ import com.example.classlab7c.service.MusicListService;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
 public class Layout3 extends Fragment {
-
+	private static int ADD_BUTTON_POSITION = 0;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -28,7 +31,14 @@ public class Layout3 extends Fragment {
 		ListView listView = (ListView)view.findViewById(R.id.listViewEvents);
 		listView.setAdapter(adapter);
 		
+		setHasOptionsMenu(true);
+		
 		return view;
 	}
+	
+	@Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.getItem(ADD_BUTTON_POSITION).setVisible(true);
+    }
 
 }
