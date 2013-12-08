@@ -8,13 +8,15 @@ public class Song {
 	private String albumTitle;
 	private Date songPublishedDate;
 	private Date lastUpdatedDate;
+	private String youtubeId;
 	
-	public Song(int id, String title, String albumTitle, Date published){
+	public Song(int id, String title, String albumTitle, Date published, String youtubeId){
 		this.songId = id;
 		this.songTitle = title;
 		this.albumTitle = albumTitle;
 		this.songPublishedDate = published;
 		this.lastUpdatedDate = new Date();
+		this.youtubeId = youtubeId;
 	}
 
 	public int getSongId() {
@@ -55,6 +57,14 @@ public class Song {
 
 	public void setLastUpdatedDate(Date lastUpdatedDate) {
 		this.lastUpdatedDate = lastUpdatedDate;
+	}
+	
+	public String getYoutubeId() {
+		return youtubeId;
+	}
+
+	public void setYoutubeId(String youtubeId) {
+		this.youtubeId = youtubeId;
 	}
 
 	@Override

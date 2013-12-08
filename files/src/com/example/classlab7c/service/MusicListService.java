@@ -32,9 +32,9 @@ public class MusicListService {
 			Event t3 = new Event(1, 1, "Horseshoe Casino", df.parse("2013/11/5"),"Louisville, KY");
 			Event t4 = new Event(1, 1, "Nashville War Memorial", df.parse("2013/11/14"),"Nashville, TN");
 			
-			Song s1 = new Song(1,"Kryptonite", "The Better Life", df.parse("2000/01/17"));
-			Song s2 = new Song(2,"Loser", "The Better Life", df.parse("2000/01/17"));
-			Song s3 = new Song(3,"I'm Yours", "I'm Yours", df.parse("2008/05/13"));
+			Song s1 = new Song(1,"Kryptonite", "The Better Life", df.parse("2000/01/17"),"MSAAKvP105A");
+			Song s2 = new Song(2,"Loser", "The Better Life", df.parse("2000/01/17"),"2Ui_Q4qBDJY");
+			Song s3 = new Song(3,"I'm Yours", "I'm Yours", df.parse("2008/05/13"),"EkHTsc9PU2A");
 			
 			List<Song>songList1 = new ArrayList<Song>();
 			songList1.add(s1);

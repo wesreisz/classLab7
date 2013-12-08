@@ -4,16 +4,24 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.classlab7c.MainActivity;
 import com.example.classlab7c.R;
 import com.example.classlab7c.model.Song;
+import com.example.classlab7c.DeveloperKey;
+import com.google.android.youtube.player.YouTubeStandalonePlayer;
 
 public class SongAdapter extends ArrayAdapter<Song>{
+	protected static final int REQ_START_STANDALONE_PLAYER = 1;
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy/mm/dd"); 
 	private Context mContext;
 	private List<Song> mEntries;
@@ -30,7 +38,7 @@ public class SongAdapter extends ArrayAdapter<Song>{
 			 LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		     view = inflater.inflate(R.layout.listview_for_each_song, parent, false);
 		}
-		Song song = mEntries.get(position);
+		final Song song = mEntries.get(position);
 		
 		TextView textViewTitle = (TextView)view.findViewById(R.id.textViewSongTitle);
 		textViewTitle.setText(song.getSongTitle());
@@ -40,6 +48,24 @@ public class SongAdapter extends ArrayAdapter<Song>{
 		
 		TextView textViewPublished= (TextView)view.findViewById(R.id.textViewSongPublish);
 		textViewPublished.setText("Published: " + df.format(song.getSongPublishedDate()));
+		
+		final Context c = this.mContext;
+		Button btnPlay = (Button)view.findViewById(R.id.btnPlay);
+		btnPlay.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				int startIndex = 0;
+				int startTimeMillis = 0;
+				boolean autoplay = true;
+				boolean lightboxMode = true;
+				
+				Intent intent = YouTubeStandalonePlayer.createVideoIntent(
+				          (MainActivity)mContext, DeveloperKey.DEVELOPER_KEY, song.getYoutubeId(), startTimeMillis, autoplay, lightboxMode);
+				Toast.makeText(v.getContext(), "Loading Youtube Player: " + song.getYoutubeId(), Toast.LENGTH_LONG).show();
+				c.startActivity(intent);
+			}
+		});
 		
 		return view;
 	}
