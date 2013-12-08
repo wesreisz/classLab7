@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.example.classlab7c.listeners.SimpleTabListener;
 import com.example.classlab7c.service.MusicListService;
+import com.example.classlab7c.utils.SecurityUtils;
+import com.parse.Parse;
 
 public class MainActivity extends Activity {
 
@@ -35,6 +37,11 @@ public class MainActivity extends Activity {
 	        tab.setTabListener(new SimpleTabListener(this, menuItem.getMenuItemClass()));
 	        actionBar.addTab(tab);
 	    }
+        
+        Parse.initialize(this, 
+				SecurityUtils.APP_ID, 
+				SecurityUtils.APP_SECRET
+			);
     }
 
 	@Override
