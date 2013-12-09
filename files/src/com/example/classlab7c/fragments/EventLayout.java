@@ -14,7 +14,8 @@ import android.widget.ListView;
 import com.example.classlab7c.R;
 import com.example.classlab7c.adapters.EventAdapter;
 import com.example.classlab7c.model.Event;
-import com.example.classlab7c.service.MusicListService;
+import com.example.classlab7c.service.IMusicService;
+import com.example.classlab7c.service.MockMusicListServiceImpl;
 
 public class EventLayout extends Fragment {
 	private static int ADD_BUTTON_POSITION = 0;
@@ -24,8 +25,8 @@ public class EventLayout extends Fragment {
 			Bundle savedInstanceState) {
 		View view =  inflater.inflate(R.layout.event_layout, container, false);
 		
-		//List<Event> events = MusicListService.getInstance(getActivity()).getAllEvents();
-		List<Event>events = null;
+		IMusicService service = MockMusicListServiceImpl.getInstance(getActivity());
+		List<Event>events = service.getAllEvents();
 		
 		EventAdapter adapter = 
 			new EventAdapter(getActivity(), R.layout.listview_for_each_event, events);

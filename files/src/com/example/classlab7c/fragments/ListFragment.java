@@ -17,7 +17,7 @@ import com.example.classlab7c.R;
 import com.example.classlab7c.adapters.MusicListAdapter;
 import com.example.classlab7c.listeners.OnItemSelectedListener;
 import com.example.classlab7c.model.MenuItem;
-import com.example.classlab7c.service.MusicListService;
+import com.example.classlab7c.service.MockMusicListServiceImpl;
 
 public class ListFragment extends Fragment {
 	private static final String TAG = "ListFragment";
@@ -36,7 +36,7 @@ public class ListFragment extends Fragment {
 		View view = inflater.inflate(R.layout.list_fragment, container, false);
 		
 		//this is how we will interact with the services
-		menuItems = MusicListService.getInstance(getActivity()).getAllMenuItems();
+		menuItems = MockMusicListServiceImpl.getInstance(getActivity()).getAllMenuItems();
 		
 		MusicListAdapter adapter =
 				new MusicListAdapter(getActivity(), R.layout.listview_for_each_menuitem, menuItems);

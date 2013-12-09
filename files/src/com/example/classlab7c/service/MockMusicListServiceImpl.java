@@ -13,7 +13,7 @@ import com.example.classlab7c.model.Event;
 import com.example.classlab7c.model.MenuItem;
 import com.example.classlab7c.model.Song;
 
-public class MusicListService implements IMusicService  {
+public class MockMusicListServiceImpl implements IMusicService  {
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy/mm/dd"); 
 	
 	private static IMusicService sPlayList;
@@ -64,13 +64,13 @@ public class MusicListService implements IMusicService  {
 		}
 	}
 	
-	private MusicListService(Context c){
+	private MockMusicListServiceImpl(Context c){
 		mAppContext = c;
 	}
 	
 	public static IMusicService getInstance(Context c){
 		if (sPlayList==null){
-			sPlayList = new MusicListService(c.getApplicationContext());
+			sPlayList = new MockMusicListServiceImpl(c.getApplicationContext());
 		}
 		return sPlayList;
 	}

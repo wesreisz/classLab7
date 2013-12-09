@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.classlab7c.R;
 import com.example.classlab7c.model.Event;
-import com.example.classlab7c.service.MusicListService;
+import com.example.classlab7c.service.MockMusicListServiceImpl;
 
 public class EventAdapter extends ArrayAdapter<Event> {
 	private SimpleDateFormat df = new SimpleDateFormat("EEE MMM d, ''yy"); 
@@ -37,7 +37,7 @@ public class EventAdapter extends ArrayAdapter<Event> {
 		title.setText(event.getEventName());
 		
 		TextView artistName = (TextView)view.findViewById(R.id.textViewArtistNameForEvent);
-		artistName.setText(MusicListService.getInstance(getContext()).getArtistNameByIt(event.getArtistId()).getArtistName());//we need to replace this with the actual artist name
+		artistName.setText(MockMusicListServiceImpl.getInstance(getContext()).getArtistNameByIt(event.getArtistId()).getArtistName());//we need to replace this with the actual artist name
 		
 		TextView eventDate = (TextView)view.findViewById(R.id.textViewDate);
 		eventDate.setText(df.format(event.getDate()));

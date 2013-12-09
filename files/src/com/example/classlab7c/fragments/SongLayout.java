@@ -15,8 +15,8 @@ import com.example.classlab7c.R;
 import com.example.classlab7c.adapters.SongAdapter;
 import com.example.classlab7c.model.Song;
 import com.example.classlab7c.service.IMusicService;
-import com.example.classlab7c.service.LastFmMusicServiceImpl;
-import com.example.classlab7c.service.MusicListService;
+import com.example.classlab7c.service.MusicListServiceImpl;
+import com.example.classlab7c.service.MockMusicListServiceImpl;
 
 public class SongLayout extends Fragment {
 	private static int ADD_BUTTON_POSITION = 0;
@@ -26,7 +26,7 @@ public class SongLayout extends Fragment {
 			Bundle savedInstanceState) {
 		View view =  inflater.inflate(R.layout.song_layout, container, false);
 		
-		IMusicService service = LastFmMusicServiceImpl.getInstance(getActivity());
+		IMusicService service = MusicListServiceImpl.getInstance(getActivity());
 		List<Song>songs = service.getAllSongs();
 		
 		SongAdapter adapter =

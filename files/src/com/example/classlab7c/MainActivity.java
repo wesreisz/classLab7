@@ -18,8 +18,8 @@ import com.example.classlab7c.model.Artist;
 import com.example.classlab7c.model.Song;
 import com.example.classlab7c.service.ArtistService;
 import com.example.classlab7c.service.IMusicService;
-import com.example.classlab7c.service.LastFmMusicServiceImpl;
-import com.example.classlab7c.service.MusicListService;
+import com.example.classlab7c.service.MusicListServiceImpl;
+import com.example.classlab7c.service.MockMusicListServiceImpl;
 import com.example.classlab7c.utils.SecurityUtils;
 import com.parse.Parse;
 
@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
         
       
         List<com.example.classlab7c.model.MenuItem>menuItems = 
-        		MusicListService.getInstance(this).getAllMenuItems();
+        		MockMusicListServiceImpl.getInstance(this).getAllMenuItems();
         for(com.example.classlab7c.model.MenuItem menuItem: menuItems){
 	    	ActionBar.Tab tab = actionBar.newTab();
 	        tab.setText(menuItem.getMenuTitle());
@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
 			SecurityUtils.APP_SECRET
 		);
         
-        service = LastFmMusicServiceImpl.getInstance(this);
+        service = MusicListServiceImpl.getInstance(this);
         loadData();
         
       	//get the artist info

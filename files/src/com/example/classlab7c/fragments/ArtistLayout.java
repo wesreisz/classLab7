@@ -14,8 +14,8 @@ import android.widget.ListView;
 import com.example.classlab7c.R;
 import com.example.classlab7c.adapters.ArtistAdapter;
 import com.example.classlab7c.model.Artist;
-import com.example.classlab7c.service.LastFmMusicServiceImpl;
-import com.example.classlab7c.service.MusicListService;
+import com.example.classlab7c.service.MusicListServiceImpl;
+import com.example.classlab7c.service.MockMusicListServiceImpl;
 
 public class ArtistLayout extends Fragment {
 	private static int ADD_BUTTON_POSITION = 0;
@@ -24,7 +24,7 @@ public class ArtistLayout extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.artist_layout, container, false);
-		List<Artist>artists = LastFmMusicServiceImpl.getInstance(getActivity()).getAllArtists();
+		List<Artist>artists = MusicListServiceImpl.getInstance(getActivity()).getAllArtists();
 		
 		ArtistAdapter adapter = 
 			new ArtistAdapter(getActivity(), R.layout.listview_for_each_artist, artists);

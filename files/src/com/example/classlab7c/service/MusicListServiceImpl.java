@@ -18,20 +18,20 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-public class LastFmMusicServiceImpl implements IMusicService {
+public class MusicListServiceImpl implements IMusicService {
 	private static IMusicService sPlayList;
 	private boolean flushCache=false;
 	List<Song>cachedSongs = null;
 	List<Artist>cachedArtists = null;
 	private Context mAppContext;
 	 
-	private LastFmMusicServiceImpl(Context c){
+	private MusicListServiceImpl(Context c){
 		mAppContext = c;
 	}
 	
 	public static IMusicService getInstance(Context c){
 		if (sPlayList==null){
-			sPlayList = new LastFmMusicServiceImpl(c.getApplicationContext());
+			sPlayList = new MusicListServiceImpl(c.getApplicationContext());
 		}
 		return sPlayList;
 	}
