@@ -24,7 +24,8 @@ public class EventLayout extends Fragment {
 			Bundle savedInstanceState) {
 		View view =  inflater.inflate(R.layout.event_layout, container, false);
 		
-		List<Event> events = MusicListService.getInstance(getActivity()).getAllEvents();
+		//List<Event> events = MusicListService.getInstance(getActivity()).getAllEvents();
+		List<Event>events = null;
 		
 		EventAdapter adapter = 
 			new EventAdapter(getActivity(), R.layout.listview_for_each_event, events);

@@ -5,20 +5,30 @@ import java.util.List;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.classlab7c.listeners.SimpleTabListener;
+import com.example.classlab7c.model.Artist;
+import com.example.classlab7c.model.Song;
+import com.example.classlab7c.service.ArtistService;
+import com.example.classlab7c.service.IMusicService;
+import com.example.classlab7c.service.LastFmMusicServiceImpl;
 import com.example.classlab7c.service.MusicListService;
 import com.example.classlab7c.utils.SecurityUtils;
 import com.parse.Parse;
 
+import de.umass.lastfm.Caller;
+
 public class MainActivity extends Activity {
-
+	private IMusicService service;
     private static final String TAG = "Main_Activity_Fragment";
-
+    List<Song>songs;
 
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +39,7 @@ public class MainActivity extends Activity {
         ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         
+      
         List<com.example.classlab7c.model.MenuItem>menuItems = 
         		MusicListService.getInstance(this).getAllMenuItems();
         for(com.example.classlab7c.model.MenuItem menuItem: menuItems){
@@ -39,9 +50,17 @@ public class MainActivity extends Activity {
 	    }
         
         Parse.initialize(this, 
-				SecurityUtils.APP_ID, 
-				SecurityUtils.APP_SECRET
-			);
+			SecurityUtils.APP_ID, 
+			SecurityUtils.APP_SECRET
+		);
+        
+        service = LastFmMusicServiceImpl.getInstance(this);
+        loadData();
+        
+      	//get the artist info
+      	//get the event info
+      	//create a reload button
+      	//do the puzzle flips
     }
 
 	@Override
@@ -68,6 +87,15 @@ public class MainActivity extends Activity {
     
     public void onExitClicked(MenuItem menuItem){
     	finish();
+    }
+    
+    public void refreshData(MenuItem menuItem){
+    	showToast("Refresh Data");
+    	service.setFlushCache(true);
+    	loadData();
+    }
+    public void loadData(){
+    	songs = service.getAllSongs();
     }
 
     private void showToast(String message) {

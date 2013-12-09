@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.example.classlab7c.service.ArtistService;
+
 public class Artist {
 	private int artistId;
 	private String artistName;
+	private String artistWiki;
+	private String imageUrl;
 	private List<Song> songsList;
 	private List<Event> toursList;
 	private Date lastModifiedDate;
@@ -23,6 +27,30 @@ public class Artist {
 			toursList.add(tour);
 		}
 	}
+
+	
+	public Artist() {
+	}
+
+	
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+
+	public String getArtistWiki() {
+		return artistWiki;
+	}
+
+
+	public void setArtistWiki(String artistWiki) {
+		this.artistWiki = artistWiki;
+	}
+
 
 	public int getArtistId() {
 		return artistId;
@@ -42,6 +70,7 @@ public class Artist {
 
 	public List<Song> getSongs() {
 		return songsList;
+		//return ArtistService.getInstance(artistName).getSongs();
 	}
 
 	public void setSongs(List<Song> songs) {

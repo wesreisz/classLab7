@@ -13,10 +13,10 @@ import com.example.classlab7c.model.Event;
 import com.example.classlab7c.model.MenuItem;
 import com.example.classlab7c.model.Song;
 
-public class MusicListService {
+public class MusicListService implements IMusicService  {
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy/mm/dd"); 
 	
-	private static MusicListService sPlayList;
+	private static IMusicService sPlayList;
 	private Context mAppContext;
 	
 	private List<Song> songs;
@@ -40,18 +40,9 @@ public class MusicListService {
 			songList1.add(s1);
 			songList1.add(s2);
 			
-			Artist a1 = new Artist(1,"Three Doors Down", Arrays.asList(s1, s2), Arrays.asList(t3, t4));
+			Artist a1 = new Artist(1,"3 Doors Down", Arrays.asList(s1, s2), Arrays.asList(t3, t4));
 			Artist a2 = new Artist(2,"Jason Mraz",Arrays.asList(s3), Arrays.asList(t1, t2));
-			
-			MenuItem menu0 = new MenuItem("Home", "Homepage");
-			menu0.setMenuItemClass("com.example.classlab7c.fragments.HomeLayout");
-			MenuItem menu1 = new MenuItem("Songs", "Shows all available songs");
-			menu1.setMenuItemClass("com.example.classlab7c.fragments.SongLayout");
-			MenuItem menu2 = new MenuItem("Artists", "Shows all available artists");
-			menu2.setMenuItemClass("com.example.classlab7c.fragments.ArtistLayout");
-			MenuItem menu3 = new MenuItem("Events", "Shows all available events");
-			menu3.setMenuItemClass("com.example.classlab7c.fragments.EventLayout");
-			
+		
 			events = new ArrayList<Event>();
 			events.add(t1);
 			events.add(t2);
@@ -67,11 +58,7 @@ public class MusicListService {
 			artists.add(a1);
 			artists.add(a2);
 			
-			menu = new ArrayList<MenuItem>();
-			menu.add(menu0);
-			menu.add(menu1);
-			menu.add(menu2);
-			menu.add(menu3);
+			menu = MenuService.getMenuItems();
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -81,22 +68,38 @@ public class MusicListService {
 		mAppContext = c;
 	}
 	
-	public static MusicListService getInstance(Context c){
+	public static IMusicService getInstance(Context c){
 		if (sPlayList==null){
 			sPlayList = new MusicListService(c.getApplicationContext());
 		}
 		return sPlayList;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.example.classlab7c.service.IMusicService#getAllMenuItems()
+	 */
+	@Override
 	public List<MenuItem> getAllMenuItems(){
 		return menu;
 	}
+	/* (non-Javadoc)
+	 * @see com.example.classlab7c.service.IMusicService#getAllSongs()
+	 */
+	@Override
 	public List<Song> getAllSongs(){
 		return songs;
 	}
+	/* (non-Javadoc)
+	 * @see com.example.classlab7c.service.IMusicService#getAllEvents()
+	 */
+	@Override
 	public List<Event> getAllEvents(){
 		return events;
 	}
+	/* (non-Javadoc)
+	 * @see com.example.classlab7c.service.IMusicService#getArtistNameByIt(int)
+	 */
+	@Override
 	public Artist getArtistNameByIt(int id){
 		for(Artist artist:artists){
 			if(artist.getArtistId()==id){
@@ -106,7 +109,17 @@ public class MusicListService {
 		return new Artist(0,"",new ArrayList<Song>(),new ArrayList<Event>());
 	}
 
+	/* (non-Javadoc)
+	 * @see com.example.classlab7c.service.IMusicService#getAllArtists()
+	 */
+	@Override
 	public List<Artist> getAllArtists() {
 		return artists;
+	}
+
+	@Override
+	public void setFlushCache(boolean flushCache) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -60,13 +60,16 @@ public class AddSongActivity extends Activity {
 		
 		EditText songName = (EditText)findViewById(R.id.song_title);
 		EditText songAlbum = (EditText)findViewById(R.id.song_album);
-		EditText songReleaseDate = (EditText)findViewById(R.id.song_release_date);
+		EditText songArtistName = (EditText)findViewById(R.id.song_artist_name);
+		EditText songYouTubeId = (EditText)findViewById(R.id.song_youtube_id);
 		
-		ParseObject testObject = new ParseObject("Song");
-		testObject.put("songName", songName.getText().toString());
-		testObject.put("songAlbum", songAlbum.getText().toString());
-		testObject.put("songReleaseDate", songReleaseDate.getText().toString());
-		testObject.saveInBackground();
+		ParseObject addSongObject = new ParseObject("Song");
+		addSongObject.put("songName", songName.getText().toString());
+		addSongObject.put("songAlbum", songAlbum.getText().toString());
+		addSongObject.put("songArtistName", songArtistName.getText().toString());
+		addSongObject.put("userName", "wesreisz");
+		addSongObject.put("songYouTubeId", songYouTubeId.getText().toString());
+		addSongObject.saveInBackground();
 		
 		finish();
 	}

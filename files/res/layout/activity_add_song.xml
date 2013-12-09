@@ -31,12 +31,21 @@
                 android:maxLines="2"/>
             
              <EditText
-                android:id="@+id/song_release_date"
+                android:id="@+id/song_artist_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Release Date"
+                android:hint="Artist Name"
                 android:paddingBottom="20sp"
-                android:inputType="date"
+                android:inputType="text"
+                android:maxLines="2"/>
+             
+               <EditText
+                android:id="@+id/song_youtube_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="YouTube ID"
+                android:paddingBottom="20sp"
+                android:inputType="text"
                 android:maxLines="1"/>
 
             <Button
@@ -48,7 +57,7 @@
                 android:paddingLeft="32dp"
                 android:paddingRight="32dp"
                 android:onClick="addSongToBackend"
-                android:text="Add Song" />
+                android:text="Add Artist" />
         </LinearLayout>
     </ScrollView>
 

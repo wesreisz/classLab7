@@ -14,6 +14,8 @@ import android.widget.ListView;
 import com.example.classlab7c.R;
 import com.example.classlab7c.adapters.SongAdapter;
 import com.example.classlab7c.model.Song;
+import com.example.classlab7c.service.IMusicService;
+import com.example.classlab7c.service.LastFmMusicServiceImpl;
 import com.example.classlab7c.service.MusicListService;
 
 public class SongLayout extends Fragment {
@@ -24,7 +26,8 @@ public class SongLayout extends Fragment {
 			Bundle savedInstanceState) {
 		View view =  inflater.inflate(R.layout.song_layout, container, false);
 		
-		List<Song>songs = MusicListService.getInstance(getActivity()).getAllSongs();
+		IMusicService service = LastFmMusicServiceImpl.getInstance(getActivity());
+		List<Song>songs = service.getAllSongs();
 		
 		SongAdapter adapter =
 				new SongAdapter(getActivity(), R.layout.listview_for_each_song, songs);

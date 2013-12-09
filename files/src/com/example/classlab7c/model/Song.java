@@ -9,6 +9,7 @@ public class Song {
 	private Date songPublishedDate;
 	private Date lastUpdatedDate;
 	private String youtubeId;
+	private String artistName;
 	
 	public Song(int id, String title, String albumTitle, Date published, String youtubeId){
 		this.songId = id;
@@ -17,6 +18,10 @@ public class Song {
 		this.songPublishedDate = published;
 		this.lastUpdatedDate = new Date();
 		this.youtubeId = youtubeId;
+	}
+
+	public Song() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getSongId() {
@@ -37,6 +42,14 @@ public class Song {
 
 	public String getAlbumTitle() {
 		return albumTitle;
+	}
+	
+	public String getArtistName() {
+		return artistName;
+	}
+
+	public void setArtistName(String artistName) {
+		this.artistName = artistName;
 	}
 
 	public void setAlbumTitle(String albumTitle) {
@@ -66,6 +79,8 @@ public class Song {
 	public void setYoutubeId(String youtubeId) {
 		this.youtubeId = youtubeId;
 	}
+	
+	
 
 	@Override
 	public int hashCode() {

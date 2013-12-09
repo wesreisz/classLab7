@@ -44,10 +44,10 @@ public class SongAdapter extends ArrayAdapter<Song>{
 		textViewTitle.setText(song.getSongTitle());
 		
 		TextView textViewDescription = (TextView)view.findViewById(R.id.textViewSongDescription);
-		textViewDescription.setText("Album: " + song.getAlbumTitle());
+		textViewDescription.setText(song.getAlbumTitle());
 		
-		TextView textViewPublished= (TextView)view.findViewById(R.id.textViewSongPublish);
-		textViewPublished.setText("Published: " + df.format(song.getSongPublishedDate()));
+		TextView textViewArtist = (TextView)view.findViewById(R.id.textViewSongArtist);
+		textViewArtist.setText(song.getArtistName());
 		
 		final Context c = this.mContext;
 		Button btnPlay = (Button)view.findViewById(R.id.btnPlay);

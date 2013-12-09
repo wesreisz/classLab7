@@ -14,5 +14,6 @@ public class DeveloperKey {
    * register a new developer key.
    */
   public static final String DEVELOPER_KEY = "AIzaSyDq-uURbI7BYh4uQU7f-cX_hZ1aefEbtMI";
+  public static final String LAST_FM_API_KEY = "f4504ab89c3cde6e351892cd44679c57";
 
 }

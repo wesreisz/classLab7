@@ -7,6 +7,12 @@
        android:onClick="onOption1Clicked"
        android:visible="false"
        />
+   <item android:id="@+id/menuRefresh"
+       android:icon="@drawable/ic_menu_refresh"
+       android:title="Refresh"
+       android:showAsAction="ifRoom"
+       android:onClick="refreshData"
+       />
    <item android:id="@+id/menuExit"
        android:icon="@android:drawable/ic_lock_power_off"
        android:title="Exit"
